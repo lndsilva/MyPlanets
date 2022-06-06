@@ -9,12 +9,19 @@
         android:layout_height="160dp">
 
         <ImageView
+            android:layout_gravity="center|left"
+            android:scaleType="centerCrop"
             android:id="@+id/imgModeloPlaneta"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/terra" />
 
         <TextView
+            android:layout_marginLeft="30sp"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:textSize="50sp"
+            android:textStyle="bold"
             android:id="@+id/txtModeloPlaneta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
