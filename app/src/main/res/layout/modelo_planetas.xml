@@ -9,23 +9,24 @@
         android:layout_height="160dp">
 
         <ImageView
-            android:layout_gravity="center|left"
-            android:scaleType="centerCrop"
             android:id="@+id/imgModeloPlaneta"
             android:layout_width="130dp"
             android:layout_height="130dp"
+            android:layout_gravity="center|left"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/terra" />
 
         <TextView
-            android:layout_marginLeft="30sp"
-            android:layout_gravity="center"
-            android:textColor="#000"
-            android:textSize="30sp"
-            android:textStyle="bold"
             android:id="@+id/txtModeloPlaneta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Terra" />
+            android:layout_gravity="center"
+            android:layout_marginLeft="30sp"
+            android:text="Terra"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 

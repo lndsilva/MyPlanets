@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //Declarar a lista
@@ -59,15 +61,24 @@ public class MainActivity extends AppCompatActivity {
             //Declarar os componentes do modelo que serão utilizados na lista
             ImageView imgPlanetas;
             TextView txtPlanetas;
+            CardView cardView;
 
-            View view1 = getLayoutInflater().inflate(R.layout.modelo_planetas,null);
+            View view1 = getLayoutInflater().inflate(R.layout.modelo_planetas, null);
 
             txtPlanetas = view1.findViewById(R.id.txtModeloPlaneta);
             imgPlanetas = view1.findViewById(R.id.imgModeloPlaneta);
+            cardView = view1.findViewById(R.id.idCardModelo);
 
             //Implementar os metodos nos componentes
             txtPlanetas.setText(nomePlanetas[i]);
             imgPlanetas.setImageResource(imagemPlanetas[i]);
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
 
             return view1;
         }
