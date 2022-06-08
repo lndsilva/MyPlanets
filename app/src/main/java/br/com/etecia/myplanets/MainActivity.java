@@ -3,10 +3,12 @@ package br.com.etecia.myplanets;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     //Criando os vetores com os dados para lista
     String nomePlanetas[] = {"Jupiter", "Lua", "Marte", "Mercurio",
             "Netuno", "Plutão", "Saturno", "Sol", "Terra", "Urano", "Venus"};
+
     int imagemPlanetas[] = {R.drawable.jupiter, R.drawable.lua,
             R.drawable.marte, R.drawable.mercurio, R.drawable.netuno,
             R.drawable.plutao, R.drawable.saturno, R.drawable.sol,
@@ -36,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
 
         listaPlanetas.setAdapter(adapter);
 
+        listaPlanetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), MostraPlanetaActivity.class);
+                //implementando o putExtra
+                intent.putExtra("nomePLaneta", nomePlanetas[i]);
+                intent.putExtra("imagemPLaneta", imagemPlanetas[i]);
+
+                startActivity(intent);
+            }
+        });
     }
 
     //criando a classe interna - inner class
@@ -61,24 +75,15 @@ public class MainActivity extends AppCompatActivity {
             //Declarar os componentes do modelo que serão utilizados na lista
             ImageView imgPlanetas;
             TextView txtPlanetas;
-            CardView cardView;
 
             View view1 = getLayoutInflater().inflate(R.layout.modelo_planetas, null);
 
             txtPlanetas = view1.findViewById(R.id.txtModeloPlaneta);
             imgPlanetas = view1.findViewById(R.id.imgModeloPlaneta);
-            cardView = view1.findViewById(R.id.idCardModelo);
 
             //Implementar os metodos nos componentes
             txtPlanetas.setText(nomePlanetas[i]);
             imgPlanetas.setImageResource(imagemPlanetas[i]);
-
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
 
             return view1;
         }
